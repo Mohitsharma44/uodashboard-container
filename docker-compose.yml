@@ -1,0 +1,8 @@
+uodash:
+  build: .
+  container_name: uodash
+  ports:
+    - "8888:8888"
+  environment:
+    WEB_PORTS: 8888
+    VIRTUAL_HOST: uodash
