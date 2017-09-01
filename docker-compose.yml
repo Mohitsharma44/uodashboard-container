@@ -2,7 +2,7 @@ uodash:
   build: .
   container_name: uodash
   ports:
-    - "8888:8888"
+    - "30000:30000"
   environment:
-    WEB_PORTS: 8888
+    WEB_PORTS: 30000
     VIRTUAL_HOST: uodash

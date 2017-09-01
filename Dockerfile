@@ -42,4 +42,4 @@ RUN apk add --no-cache libstdc++ lapack-dev && \
 CMD ["python", "/opt/devel/uodashboard/app.py"]
 
 # expose the port where connections will be served
-EXPOSE 8888
+EXPOSE 30000
