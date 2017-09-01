@@ -3,3 +3,6 @@ branches:
   only:
   - master
   - dev
+
+  exclude:
+  - master
