@@ -1,9 +1,9 @@
-sudo: required
-
-language: generic
-
-services:
-  - docker
-
-script:
-  - make test
+sudo: required                                                                                                                               
+                                                                                                                                             
+language: generic                                                                                                                            
+                                                                                                                                             
+services:                                                                                                                                    
+  - docker                                                                                                                                   
+                                                                                                                                             
+script:                                                                                                                                      
+  - make test 
