@@ -1,4 +1,5 @@
 # safelist
 branches:
   only:
+  - master
   - dev
