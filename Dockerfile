@@ -19,7 +19,7 @@ RUN apk add --no-cache python3 && \
     # make directory for webapp code
     mkdir -p /opt/devel && \
     # clone the repo
-    git clone https://github.com/Mohitsharma44/uodashboard /opt/devel/uodashboard
+    git clone -b dev --single-branch https://github.com/Mohitsharma44/uodashboard /opt/devel/uodashboard
 
 WORKDIR /opt/devel/uodashboard
 
@@ -42,4 +42,4 @@ RUN apk add --no-cache libstdc++ lapack-dev && \
 CMD ["python", "/opt/devel/uodashboard/app.py"]
 
 # expose the port where connections will be served
-EXPOSE 8888
+EXPOSE 30000

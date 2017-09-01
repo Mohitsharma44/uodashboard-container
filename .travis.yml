@@ -1,8 +1,9 @@
-# safelist
-branches:
-  only:
-  - master
-  - dev
-
-  exclude:
-  - master
+sudo: required                                                                                                                               
+                                                                                                                                             
+language: generic                                                                                                                            
+                                                                                                                                             
+services:                                                                                                                                    
+  - docker                                                                                                                                   
+                                                                                                                                             
+script:                                                                                                                                      
+  - make test 
