@@ -3,7 +3,7 @@ UODashboard in a container form
 
 [![Build Status](https://travis-ci.org/Mohitsharma44/uodashboard-container.svg?branch=master)](https://travis-ci.org/Mohitsharma44/uodashboard-container)
 
-https://img.shields.io/docker/build/mohitsharma44/uodashboard-container.svg
+[![Docker Build](https://img.shields.io/docker/build/mohitsharma44/uodashboard-container.svg)](https://img.shields.io/docker/build/mohitsharma44/uodashboard-container.svg)
 
 This repo contains the container version of [UODashboard](https://github.com/Mohitsharma44/uodashboard) webapplication.
 
