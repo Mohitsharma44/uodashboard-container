@@ -19,7 +19,7 @@ RUN apk add --no-cache python3 && \
     # make directory for webapp code
     mkdir -p /opt/devel && \
     # clone the repo
-    git clone -b dev --single-branch https://github.com/Mohitsharma44/uodashboard /opt/devel/uodashboard
+    git clone -b master --single-branch https://github.com/Mohitsharma44/uodashboard /opt/devel/uodashboard
 
 WORKDIR /opt/devel/uodashboard
 
