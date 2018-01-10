@@ -5,6 +5,7 @@ MAINTAINER Mohit Sharma <mohitsharma44@gmail.com>
 # Get Python3
 RUN apk add --no-cache python3 && \
     apk add --no-cache git && \
+    apk add --no-cache bash && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --upgrade pip setuptools && \
@@ -17,29 +18,25 @@ RUN apk add --no-cache python3 && \
     if [[ ! -e /usr/bin/pip ]]; then ln -sf /usr/bin/pip3 /usr/bin/pip; fi && \
     rm -r /root/.cache && \
     # make directory for webapp code
-    mkdir -p /opt/devel && \
-    # clone the repo
-    git clone -b master --single-branch https://github.com/Mohitsharma44/uodashboard /opt/devel/uodashboard
+    mkdir -p /docker-vols && \
+    git clone -b dev --single-branch https://github.com/Mohitsharma44/uodashboard /docker-vols/uodashboard && \
+    mkdir -p /docker-vols/uodashboard/static/timelapses
 
-WORKDIR /opt/devel/uodashboard
+WORKDIR /docker-vols/uodashboard
 
 # Install required packages
 RUN apk add --no-cache libstdc++ lapack-dev && \
     apk add --no-cache \
         --virtual=.build-dependencies \
-        g++ gfortran musl-dev \
-        python3-dev ca-certificates \
-        zlib-dev jpeg-dev py-curl && \
-    ln -s locale.h /usr/include/xlocale.h && \
-    pip install --no-cache-dir wheel && \
-    LIBRARY_PATH=/lib:/usr/lib /bin/sh -c "pip install --no-cache-dir -r requirements.txt" && \
-    find /usr/lib/python3.*/ -name 'tests' -exec rm -r '{}' + && \
-    rm /usr/include/xlocale.h && \
-    rm -r /root/.cache && \
-    apk del .build-dependencies
+        python3-dev ca-certificates && \
+     pip install --no-cache-dir wheel && \
+     LIBRARY_PATH=/lib:/usr/lib /bin/sh -c "pip install --no-cache-dir -r requirements.txt" && \
+     find /usr/lib/python3.*/ -name 'tests' -exec rm -r '{}' + && \
+     rm -r /root/.cache && \
+     apk del .build-dependencies
 
 # fire-up the script
-CMD ["python", "/opt/devel/uodashboard/app.py"]
+CMD ["python", "/docker-vols/uodashboard/app.py"]
 
 # expose the port where connections will be served
 EXPOSE 30000
