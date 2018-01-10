@@ -10,3 +10,4 @@ services:
     environment:
       WEB_PORTS: 30000
       VIRTUAL_HOST: uodash
+    restart: always
