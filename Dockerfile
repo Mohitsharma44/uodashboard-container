@@ -19,7 +19,7 @@ RUN apk add --no-cache python3 && \
     rm -r /root/.cache && \
     # make directory for webapp code
     mkdir -p /docker-vols && \
-    git clone -b dev --single-branch https://github.com/Mohitsharma44/uodashboard /docker-vols/uodashboard && \
+    git clone -b master --single-branch https://github.com/Mohitsharma44/uodashboard /docker-vols/uodashboard && \
     mkdir -p /docker-vols/uodashboard/static/timelapses
 
 WORKDIR /docker-vols/uodashboard
