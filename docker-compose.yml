@@ -1,8 +1,12 @@
-uodash:
-  build: .
-  container_name: uodash
-  ports:
-    - "30000:30000"
-  environment:
-    WEB_PORTS: 30000
-    VIRTUAL_HOST: uodash
+version: "2"
+services:
+  uodash:
+    build: .
+    container_name: uodash
+    volumes_from:
+      - container:my_rsyncd
+    ports:
+      - "30000:8888"
+    environment:
+      WEB_PORTS: 30000
+      VIRTUAL_HOST: uodash
